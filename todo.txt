@@ -1,0 +1,12 @@
+- Hay que finalizar las rutas de upload
+
+Ahorita hice la de ordernes (orders) y pagos (payments)
+Falta la de notas de crédito, clientes y órdenes reimpresas
+
+La más complicada es la notas de crédito, porque hay que hacer todos los cálculos
+
+La lógica para la sincronización con pagos y notas de crédito es la siguiente:
+- Se va a utilizar el campo de consecutivo_offline_factura para obtener el id de la factura real (porque en la base de datos puedo tener el id 50, pero en mysql puede ser la 100)
+- El campo consecutivo_offline_factura siempre va a ser el mismo, tanto en la local como en mysql, entonces primero hay que buscar por ese campo el id que se encuentra en mysql y 
+  al recibo y la nota de crédito se le cambia el valor del campo id de factura que trae (id_proforma, n_factura o el que sea) por ese campo
+
